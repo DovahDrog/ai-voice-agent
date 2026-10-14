@@ -1,0 +1,1181 @@
+{
+  "$defs": {
+    "AuditLookupRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "prospect_id": {
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9_-]{1,80}$",
+          "title": "Prospect Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prospect_id"
+      ],
+      "title": "AuditLookupRequest",
+      "type": "object"
+    },
+    "AuditLookupResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "audit_summary": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Audit Summary"
+        }
+      },
+      "required": [
+        "audit_summary"
+      ],
+      "title": "AuditLookupResponse",
+      "type": "object"
+    },
+    "CalendarRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "attendee": {
+          "default": "operator",
+          "enum": [
+            "operator",
+            "team"
+          ],
+          "title": "Attendee",
+          "type": "string"
+        },
+        "date_range": {
+          "maxLength": 400,
+          "minLength": 1,
+          "title": "Date Range",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date_range"
+      ],
+      "title": "CalendarRequest",
+      "type": "object"
+    },
+    "CalendarResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "slots": {
+          "items": {
+            "maxLength": 4000,
+            "type": "string"
+          },
+          "title": "Slots",
+          "type": "array"
+        },
+        "source": {
+          "const": "deterministic_example",
+          "default": "deterministic_example",
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slots"
+      ],
+      "title": "CalendarResponse",
+      "type": "object"
+    },
+    "ClosePacketSmsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contact_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Id"
+        },
+        "contract_url": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contract Url"
+        },
+        "onboarding_url": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Onboarding Url"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "payment_url": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Payment Url"
+        },
+        "permission_confirmed": {
+          "default": false,
+          "title": "Permission Confirmed",
+          "type": "boolean"
+        },
+        "permission_evidence": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Permission Evidence"
+        },
+        "phone": {
+          "description": "Recipient phone in E.164 format",
+          "maxLength": 16,
+          "pattern": "^\\+[1-9][0-9]{6,14}$",
+          "title": "Phone",
+          "type": "string"
+        },
+        "prospect_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prospect Id"
+        },
+        "summary": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Summary"
+        }
+      },
+      "required": [
+        "phone"
+      ],
+      "title": "ClosePacketSmsRequest",
+      "type": "object"
+    },
+    "ClosePacketSmsResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_reason": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Blocked Reason"
+        },
+        "channel": {
+          "const": "sms",
+          "default": "sms",
+          "title": "Channel",
+          "type": "string"
+        },
+        "logged": {
+          "default": true,
+          "title": "Logged",
+          "type": "boolean"
+        },
+        "message_preview": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Message Preview"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "provider_message_id": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Message Id"
+        },
+        "sent": {
+          "title": "Sent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "sent"
+      ],
+      "title": "ClosePacketSmsResponse",
+      "type": "object"
+    },
+    "CreateProspectRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contact_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Id"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        },
+        "name": {
+          "maxLength": 400,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Recipient phone in E.164 format",
+          "maxLength": 16,
+          "pattern": "^\\+[1-9][0-9]{6,14}$",
+          "title": "Phone",
+          "type": "string"
+        },
+        "vertical": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vertical"
+        }
+      },
+      "required": [
+        "name",
+        "phone"
+      ],
+      "title": "CreateProspectRequest",
+      "type": "object"
+    },
+    "CreateProspectResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "prospect_id": {
+          "maxLength": 4000,
+          "title": "Prospect Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prospect_id"
+      ],
+      "title": "CreateProspectResponse",
+      "type": "object"
+    },
+    "LeadLeakSnapshotEmailRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "call_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call Id"
+        },
+        "company_name": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Company Name"
+        },
+        "contact_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Id"
+        },
+        "contact_name": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Name"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Recipient email collected or confirmed during the call",
+          "title": "Email"
+        },
+        "next_step_url": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Step Url"
+        },
+        "permission_confirmed": {
+          "default": false,
+          "title": "Permission Confirmed",
+          "type": "boolean"
+        },
+        "permission_evidence": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Exact call evidence that the prospect asked for or agreed to receive the email. Required before sending.",
+          "title": "Permission Evidence"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "maxLength": 16,
+              "pattern": "^\\+[1-9][0-9]{6,14}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Recipient phone in E.164 format",
+          "title": "Phone"
+        },
+        "snapshot_summary": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot Summary"
+        },
+        "source": {
+          "default": "voice_call",
+          "maxLength": 4000,
+          "title": "Source",
+          "type": "string"
+        },
+        "subject": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject"
+        }
+      },
+      "title": "LeadLeakSnapshotEmailRequest",
+      "type": "object"
+    },
+    "LeadLeakSnapshotEmailResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_reason": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Blocked Reason"
+        },
+        "channel": {
+          "const": "email",
+          "default": "email",
+          "title": "Channel",
+          "type": "string"
+        },
+        "contact_id": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Id"
+        },
+        "logged": {
+          "default": true,
+          "title": "Logged",
+          "type": "boolean"
+        },
+        "message_preview": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Message Preview"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "provider_message_id": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Message Id"
+        },
+        "sent": {
+          "title": "Sent",
+          "type": "boolean"
+        },
+        "subject": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject"
+        }
+      },
+      "required": [
+        "sent"
+      ],
+      "title": "LeadLeakSnapshotEmailResponse",
+      "type": "object"
+    },
+    "LeadLeakSnapshotSmsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "call_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call Id"
+        },
+        "company_name": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Company Name"
+        },
+        "contact_id": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Id"
+        },
+        "contact_name": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Name"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        },
+        "next_step_url": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Step Url"
+        },
+        "permission_confirmed": {
+          "default": false,
+          "title": "Permission Confirmed",
+          "type": "boolean"
+        },
+        "permission_evidence": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Exact call evidence that the prospect asked for or agreed to receive the text/SMS. Required before sending.",
+          "title": "Permission Evidence"
+        },
+        "phone": {
+          "description": "Recipient phone in E.164 format",
+          "maxLength": 16,
+          "pattern": "^\\+[1-9][0-9]{6,14}$",
+          "title": "Phone",
+          "type": "string"
+        },
+        "snapshot_summary": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot Summary"
+        },
+        "source": {
+          "default": "voice_call",
+          "maxLength": 4000,
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phone"
+      ],
+      "title": "LeadLeakSnapshotSmsRequest",
+      "type": "object"
+    },
+    "LeadLeakSnapshotSmsResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_reason": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Blocked Reason"
+        },
+        "channel": {
+          "const": "sms",
+          "default": "sms",
+          "title": "Channel",
+          "type": "string"
+        },
+        "contact_id": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contact Id"
+        },
+        "logged": {
+          "default": true,
+          "title": "Logged",
+          "type": "boolean"
+        },
+        "message_preview": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Message Preview"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "provider_message_id": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Message Id"
+        },
+        "sent": {
+          "title": "Sent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "sent"
+      ],
+      "title": "LeadLeakSnapshotSmsResponse",
+      "type": "object"
+    },
+    "LogOutcomeRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "next_action": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Action"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "outcome": {
+          "enum": [
+            "booked",
+            "thinking",
+            "declined",
+            "wrong_number",
+            "do_not_call",
+            "escalated",
+            "no_answer",
+            "bad_fit_or_spam",
+            "internal_test"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "prospect_id": {
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9_-]{1,80}$",
+          "title": "Prospect Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prospect_id",
+        "outcome"
+      ],
+      "title": "LogOutcomeRequest",
+      "type": "object"
+    },
+    "LogOutcomeResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "logged": {
+          "title": "Logged",
+          "type": "boolean"
+        },
+        "path": {
+          "maxLength": 4000,
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "logged",
+        "path"
+      ],
+      "title": "LogOutcomeResponse",
+      "type": "object"
+    },
+    "SmsBookingRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "calendar_url": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Calendar Url"
+        },
+        "permission_confirmed": {
+          "default": false,
+          "title": "Permission Confirmed",
+          "type": "boolean"
+        },
+        "permission_evidence": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Permission Evidence"
+        },
+        "phone": {
+          "description": "Recipient phone in E.164 format",
+          "maxLength": 16,
+          "pattern": "^\\+[1-9][0-9]{6,14}$",
+          "title": "Phone",
+          "type": "string"
+        },
+        "slot": {
+          "maxLength": 400,
+          "minLength": 1,
+          "title": "Slot",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phone",
+        "slot"
+      ],
+      "title": "SmsBookingRequest",
+      "type": "object"
+    },
+    "SmsBookingResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_reason": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Blocked Reason"
+        },
+        "provider_message_id": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Message Id"
+        },
+        "sent": {
+          "title": "Sent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "sent"
+      ],
+      "title": "SmsBookingResponse",
+      "type": "object"
+    },
+    "TransferRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Context"
+        },
+        "reason": {
+          "maxLength": 400,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reason"
+      ],
+      "title": "TransferRequest",
+      "type": "object"
+    },
+    "TransferResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_transfer": {
+          "const": false,
+          "default": false,
+          "title": "Actual Transfer",
+          "type": "boolean"
+        },
+        "escalated": {
+          "title": "Escalated",
+          "type": "boolean"
+        },
+        "fallback_required_after_seconds": {
+          "default": 90,
+          "title": "Fallback Required After Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "escalated"
+      ],
+      "title": "TransferResponse",
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/schemas/voice-tools.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Standalone protected voice-agent tool backend. Demo/log-only by default; no streaming speech engine. Provider adapters require explicit user configuration and caller permission.",
+  "title": "AI Voice Agent Tool Backend Contracts",
+  "tools": {
+    "check_calendar": {
+      "method": "POST",
+      "path": "/tools/check_calendar",
+      "request": {
+        "$ref": "#/$defs/CalendarRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/CalendarResponse"
+      }
+    },
+    "create_prospect": {
+      "method": "POST",
+      "path": "/tools/create_prospect",
+      "request": {
+        "$ref": "#/$defs/CreateProspectRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/CreateProspectResponse"
+      }
+    },
+    "log_call_outcome": {
+      "method": "POST",
+      "path": "/tools/log_call_outcome",
+      "request": {
+        "$ref": "#/$defs/LogOutcomeRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/LogOutcomeResponse"
+      }
+    },
+    "look_up_audit": {
+      "method": "POST",
+      "path": "/tools/look_up_audit",
+      "request": {
+        "$ref": "#/$defs/AuditLookupRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/AuditLookupResponse"
+      }
+    },
+    "send_lead_leak_snapshot_email": {
+      "method": "POST",
+      "path": "/tools/send_lead_leak_snapshot_email",
+      "request": {
+        "$ref": "#/$defs/LeadLeakSnapshotEmailRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/LeadLeakSnapshotEmailResponse"
+      }
+    },
+    "send_lead_leak_snapshot_sms": {
+      "method": "POST",
+      "path": "/tools/send_lead_leak_snapshot_sms",
+      "request": {
+        "$ref": "#/$defs/LeadLeakSnapshotSmsRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/LeadLeakSnapshotSmsResponse"
+      }
+    },
+    "send_sms_booking_link": {
+      "method": "POST",
+      "path": "/tools/send_sms_booking_link",
+      "request": {
+        "$ref": "#/$defs/SmsBookingRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/SmsBookingResponse"
+      }
+    },
+    "send_sms_close_packet": {
+      "method": "POST",
+      "path": "/tools/send_sms_close_packet",
+      "request": {
+        "$ref": "#/$defs/ClosePacketSmsRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/ClosePacketSmsResponse"
+      }
+    },
+    "transfer_to_operator": {
+      "method": "POST",
+      "path": "/tools/transfer_to_operator",
+      "request": {
+        "$ref": "#/$defs/TransferRequest"
+      },
+      "response": {
+        "$ref": "#/$defs/TransferResponse"
+      }
+    }
+  },
+  "version": "1.0.0"
+}

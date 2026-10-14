@@ -1,0 +1,24 @@
+# Local environments, generated artifacts and private runtime state
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+.env
+.env.*
+!.env.example
+runtime/
+logs/
+uploads/
+*.jsonl
+*.sqlite*
+*.db
+*.wav
+*.mp3
+*.m4a
+*.log
+.DS_Store
